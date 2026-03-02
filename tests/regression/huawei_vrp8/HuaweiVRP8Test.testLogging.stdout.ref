@@ -1,0 +1,9 @@
+# $Id:$
+# $Date:$
+# $Revision:$
+undo acl name test-filter
+acl name test-filter advance
+ remark $Id:$
+ remark this is a test acl
+ rule 5 permit tcp source any destination any logging logging
+#

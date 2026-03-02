@@ -1,0 +1,15 @@
+# $Id:$
+# $Date:$
+# $Revision:$
+undo acl name test-filter
+acl name test-filter advance
+ remark $Id:$
+ remark this is a mixed acl
+ rule 5 permit tcp source any destination any
+#
+undo acl ipv6 name ipv6-test-filter
+acl ipv6 name ipv6-test-filter advance
+ remark $Id:$
+ remark this is a mixed acl
+ rule 5 permit tcp source any destination any
+#

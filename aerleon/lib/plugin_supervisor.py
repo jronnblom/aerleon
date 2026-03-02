@@ -120,6 +120,7 @@ BUILTIN_GENERATORS: list[tuple] = [
     ('k8s',                  'aerleon.lib.k8s',                  'K8s'),
     ('fortigate',            'aerleon.lib.fortigate',            'Fortigate'),
     ('proxmox',              'aerleon.lib.proxmox',              'Proxmox'),
+    ('huawei-vrp8',          'aerleon.lib.huawei_vrp8',          'HuaweiVRP8'),
     # fmt: on
 ]
 
