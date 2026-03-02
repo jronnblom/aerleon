@@ -1,0 +1,10 @@
+# $Id:$
+# $Date:$
+# $Revision:$
+undo acl name test-filter
+acl name test-filter advance
+ remark $Id:$
+ remark this is a test acl
+ rule 5 permit icmp source any destination any icmp-type 0
+ rule 10 permit icmp source any destination any icmp-type 8
+#
