@@ -56,6 +56,8 @@ class Term(cisco.Term):
 
         Huawei IPv6 subnets use space-separated prefix length
         (e.g. '2001:db8:: 32') rather than CIDR slash notation.
+        The prefixlen != 0 guard ensures '::/0' is still handled by the
+        parent as 'any', not reformatted to ':: 0'.
         """
         if (
             isinstance(addr, (nacaddr.IPv6, ipaddress.IPv6Network))
@@ -247,7 +249,11 @@ class HuaweiVRP8(cisco.Cisco):
                             target.append(f' rule {seq} {stripped}')
                             seq += 5
                         elif stripped.startswith('rule '):
-                            # Verbatim rule line — pass through unchanged.
+                            # Verbatim rule line — passed through as-is.
+                            # Note: verbatim rules carry their own rule ID so the
+                            # auto-sequence counter is NOT advanced here.  Callers
+                            # using verbatim are responsible for avoiding ID conflicts
+                            # with auto-generated rules.
                             target.append(f' {stripped}')
 
                 target.append('#')
